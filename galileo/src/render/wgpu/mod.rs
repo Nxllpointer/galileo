@@ -804,7 +804,9 @@ impl Canvas for WgpuCanvas<'_> {
                         usage: wgpu::BufferUsages::VERTEX,
                         contents: bytemuck::cast_slice(&opacities),
                     });
-            render_pass.set_vertex_buffer(1, display_buffer.slice(..));
+            if !opacities.is_empty() {
+                render_pass.set_vertex_buffer(1, display_buffer.slice(..));
+            }
 
             for (index, (bundle, _)) in bundles.iter().enumerate() {
                 if let Some(cast) = bundle.as_any().downcast_ref::<WgpuPackedBundle>() {

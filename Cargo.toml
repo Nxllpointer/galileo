@@ -86,5 +86,5 @@ wasm-bindgen-derive = "0.2"
 wasm-bindgen-futures = "0.4"
 web-time = "1"
 web-sys = "0.3"
-wgpu = { version = "22", default-features = false }
+wgpu = { version = "23", default-features = false }
 winit = { version = "0.30", default-features = false }
